@@ -1,4 +1,3 @@
-{% include head.html %}
 ---
 layout: post
 title:  "并行计算学习笔记 Parallel Computing Study Notes"
