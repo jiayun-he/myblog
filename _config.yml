@@ -22,7 +22,7 @@ github_username:  jiayun-he
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-minimal
+theme: default
 plugins:
   - jekyll-feed
 
