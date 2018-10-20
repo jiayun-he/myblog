@@ -1,8 +1,6 @@
 ---
 layout: post
 title:  "并行计算学习笔记 Parallel Computing Study Notes"
-date:   2018-10-21
-categories: Study Notes
 ---
 ## RAM and PRAM Model
 **RAM (随机存取机)** stands for Random Access Machine, which is a simple model of computation. A program in a RAM runs according the program counter, and the operation (in the program) is translated to a constant number of instructions. It is called "random" because the time taken to access the memory is constant over all addresses.
