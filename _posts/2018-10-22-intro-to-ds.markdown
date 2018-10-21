@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "Intro-to-DS"
+title: "分布式系统简介 Introduction to Distributed System"
 date: "2018-10-22 02:47"
 author: Jiayun
 ---
