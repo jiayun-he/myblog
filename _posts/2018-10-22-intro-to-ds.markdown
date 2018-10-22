@@ -54,3 +54,4 @@ Cloud 和 Cluster 之间的区别是， cluster 内的组件一般是通过LAN (
 通过共享来降低资源的拥有成本(reduce cost of ownership)，如可以多人共用一个打印机进行作业。
 
 ##4 **Consequences** of DS (CHNI)
+Concurrency, Heterogenerity, No global clock, Independent failures.
