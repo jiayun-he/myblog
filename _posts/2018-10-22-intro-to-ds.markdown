@@ -25,13 +25,13 @@ Tanenbaum 给出了另外一个角度的定义：虽然一个分布式系统是�
 Example of Distributed Systems:
 
 Cluster - a collection of interconnected stand-alone computers cooperatively
-working together as a single, integrated computing resource. [Buyya]
+working together as a single, integrated computing resource.
 
 Cloud - a collection of
 interconnected and virtualised computers that are dynamically
 provisioned and presented as one or more unified computing
 resources based on service-level agreements established through
-negotiation between the service provider and consumers.[Buyya]
+negotiation between the service provider and consumers.
 
 Cloud 和 Cluster 之间的区别是， cluster 内的组件一般是通过LAN (局域网)相连的，而Cloud则是可以做到不受地域限制（Geographically distributed）。Cluster更像是将很多个电脑堆在一起做成一个“大电脑”。
 
