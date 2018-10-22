@@ -55,3 +55,39 @@ Cloud 和 Cluster 之间的区别是， cluster 内的组件一般是通过LAN (
 
 ## 4 **Consequences** of DS (CHNI)
 Concurrency, Heterogenerity, No global clock, Independent failures.
+
+## 5 **Characteristics** of DS (PCRNN)
+Parallel activities, Communication via message passing, Resource sharing, No global state, no global clock. **Global state** is useful in multiple situations like distributed garbage collection, deadlock resolution, and distributed termination. These examples can be found in page 628/629 in  [Coulouris'book](http://www.gecg.in/papers/ds5thedn.pdf).
+![global state](/myblog/assets/global_state.png)
+However, due to the absence of global clock, there is no global state in a distributed system.
+
+一些容易理解的概念就不再赘述了，这里提一下global state这个概念，翻译过来就是系统的一个“全局状态”。分布式系统里因为没有全局时间，因此也没有全局状态。但是两者都非常有用，因此有一些方法来“实现”global state。其中一个非常著名的算法[Chandy and Lamport的snapshot算法](https://lamport.azurewebsites.net/pubs/chandy.pdf)，有兴趣的可以研读链接里的论文。
+
+## 5 **Goals** of DS (CTOSE)
+*  Connecting user and resources
+*  Transparency
+*  Openness
+*  Scalability
+*  Enhanced Availability<br>
+
+According to Coulouris, openness determines whether the
+system can be extended and reimplemented in various ways. 要做到openness这一点，详尽的文档是必不可少的，同时关键的接口（要符合标准）要公开。Openness的定义也可以在[这里](http://cse.csusb.edu/tongyu/courses/cs660/notes/chap1.php)找到。
+
+##  7 General **challenges** for DS
+*  Heterogenerity (不同的操作系统，硬件，编程语言，安全系统等应该都可以通过DS协作)
+
+* 9 Distributed transparencies （“分布式” 要尽可能对用户隐藏，包括**Access** - local资源和remote资源的access是一致的, **Location** - 如将domain name和machine address分开，**Failure**，**Replicate** - 复制的（可能用于data backup）数据对用户是隐藏的, **Migration** - e.g. 切换不同的name service, **Concurrency** - 每个process都不知道自己在跟别人share resource, **Performance** - 根据用户量的增长调整组件/算法等等, **Scaling** - expand scale时不用改动系统架构/应用算法, **Application Level** transparencies.）
+
+*  Fault tolerance （不能因为仅仅一个组件炸了导致整个系统崩溃！**detection**,**masking**,**toleration**,**recovery**）
+
+*  Scalability (1. 随着用户数量增长，系统要保持高效 2. 能够利用新增的资源来提高效率)
+
+*  Concurrency （可以有共享资源）
+
+*  Openness
+
+*  Security (CIA triads + non-repudiation)
+
+
+![cia](/myblog/assets/cia.png)
+Source: http://www.boblandstrom.com/cia-triad/
