@@ -1,0 +1,35 @@
+---
+layout: "post"
+title: "Short introduction to entropy (Information Theory)"
+date: "2018-10-24 14:19"
+---
+
+{% include mathjax.html %}
+### What is entropy?
+Entropy is a measure of unpredictability - how "chaotic" a distribution is. For instance, if we have two documents: <br><br>
+**docA**: "hello hello hello hello hello"<br>
+**docB**: "hello world from jiayun" <br>
+
+Obviously, docA is very "predictable" since all words are the same. And docB is more "chaotic", since it doesn't even have a duplicate word. Thus, docB is more "valuable" than docA because it provides us more "information". When we need to compare two large files (documents), it is unrealistic to do this intuitively, and therefore we use the calculation of **entropy** for evaluation. <br><br>
+
+$$E(d)\ =\ \sum_{i=1}^{n}-f_i*log_2(\frac{f_i}{M})$$
+
+For docA given above, $$d_A\ =\ <f_{hello}>$$ = $$<5>$$, and for docB, $$d_B\ =\ <f_{hello},f_{world},f_{from},f_{jiayun}$$ = $$<1,1,1,1>$$ <br><br>
+M is the sum of all word frequencies in a document: $$M=\sum_{i=1}^{n}fi$$<br>
+
+And therefore $$E(d_A)\ =\ -f_{hello}*log_2(\frac{f_{hello}}{M_A})$$ = $$4\ *\ log_2(\frac{4}{4})$$ = $$0$$ <br><br>
+
+For docB, <br><br>
+$$M_B\ =\ 1+1+1+1\ =\ 4$$<br>
+
+$$E(d_B)\ =\ -f_{hello}*log_2(\frac{f_{hello}}{M_B})$$ - $$f_{world}*log_2(\frac{f_{world}}{M_B})$$ - $$f_{from}*log_2(\frac{f_{from}}{M_B})$$ - $$f_{luke}*log_2(\frac{f_{luke}}{M_B})$$ = <br>
+
+$$-1\ *\ log_2(\frac{1}{4})\ * \ 4$$ = $$8$$
+
+Since $$E(d_B)\ >\ E(d_A)$$, docB is more "informative" than docA.
+
+A more general formula for entropy is given below:<br>
+
+$$H(x)\ =\ -\sum_{i=1}^{n}P(i)log_2(P(i))$$
+
+$$P(i)$$ is the probability of event i, where in the above case is $$\frac{f_i}{M}$$ - the probability of a word in the document.
