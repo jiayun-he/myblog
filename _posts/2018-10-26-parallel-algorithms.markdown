@@ -46,6 +46,49 @@ $$\theta(\lceil{log(\frac{n}{log(n)})}\rceil)$$ = $$\theta(log(n)\ -\ loglog(n))
 Total work:
 
 $$w(n)$$ = $$p(n)$$ * $$t(n)$$ = $$\theta(\frac{n}{log(n)})$$ * $$\theta(log(n)\ +\ log(n))$$ = $$\theta(log(n))$$
+
+## Parallel Maximum
+
+### Max1
+
+| metric | value |
+|:-----:|:-----:|
+|**Problem Size**|$$n$$|
+|**p(n)** | $$\theta(n^2)$$|
+|**t(n)**| $$O(1)$$|
+|**w(n)** |$$\theta(n^2)$$|
+
+![subadd](/myblog/assets/max1.png)
+
+### Max2
+
+| metric | value |
+|:-----:|:-----:|
+|**Problem Size**|$$n^2$$|
+|**p(n)** | $$\theta(n^2)$$|
+|**t(n)**| $$\theta(loglog(n))$$|
+|**w(n)** |$$\theta(n^2loglog(n))$$|
+
+![subadd](/myblog/assets/max2.png)
+
+To analyze the complexity, since in every recursive step the problem size is cut to the square root of the original, as shown in the example below:
+
+![subadd](/myblog/assets/max2_2.png)
+
+Assume there are $$j$$ recursive steps in total:
+
+$$n^{\frac{2}{2^j}}$$ = $$2^2$$
+
+$$n^{\frac{1}{2^j}}$$ = $$2$$
+
+$$\frac{1}{2^j}$$ = $$log_n2$$ = $$\frac{log2}{logn}$$
+
+$$2^j$$ = $$\frac{logn}{log2}$$
+
+$$j$$ = $$log\frac{logn}{log2}$$ = $$loglogn\ -\ loglog2$$ = $$\theta(loglogn)$$
+
+
+
 ## Parallel Sort
 
 ### Naive
