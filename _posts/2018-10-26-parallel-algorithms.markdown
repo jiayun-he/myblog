@@ -47,6 +47,10 @@ Total work:
 
 $$w(n)$$ = $$p(n)$$ * $$t(n)$$ = $$\theta(\frac{n}{log(n)})$$ * $$\theta(log(n)\ +\ log(n))$$ = $$\theta(log(n))$$
 
+## Parallel Broadcast
+To simulate CRCW in an EREW, with a penalty of $$O(logn)$$ steps.
+![subadd](/myblog/assets/bcast.png)
+
 ## Parallel Maximum
 
 ### Max1
