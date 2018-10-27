@@ -7,10 +7,14 @@ author: Jiayun
 {% include mathjax.html %}
 - [Parallel Add](#parallel-add)
 	- [Sub-Optimal](#sub-optimal)
-	- [Optimal](#optimal)
+	- [Optimal (with 2 stages)](#optimal-with-2-stages)
+- [Parallel Broadcast](#parallel-broadcast)
+- [Parallel Duplication Checking](#parallel-duplication-checking)
+- [Parallel Maximum](#parallel-maximum)
+	- [Max1](#max1)
+	- [Max2](#max2)
 - [Parallel Sort](#parallel-sort)
-	- [Naive Version](#naive-version)
-
+	- [Naive](#naive)
 
 ## Parallel Add
 
@@ -50,6 +54,11 @@ $$w(n)$$ = $$p(n)$$ * $$t(n)$$ = $$\theta(\frac{n}{log(n)})$$ * $$\theta(log(n)\
 ## Parallel Broadcast
 To simulate CRCW in an EREW, with a penalty of $$O(logn)$$ steps.
 ![subadd](/myblog/assets/bcast.png)
+
+## Parallel Duplication Checking
+On PRIORITY PRAM.
+
+![subadd](/myblog/assets/duplicate.png)
 
 ## Parallel Maximum
 
