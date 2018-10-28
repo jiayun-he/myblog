@@ -1,0 +1,50 @@
+---
+layout: "post"
+title: "Java RMI"
+date: "2018-10-28 17:09"
+author: Jiayun
+---
+
+### What is RMI?
+
+RMI stands for Remote Method Invocation, which is an "object-oriented" version for RPC (Remote Procedure Call). It allows a process to invoke method in a remote object in another process (which is usually in another computer). RMI demonstrates basic access & location transparencies in a distributed system. **Access transparency**: invoke methods of remote objects as local objects.
+
+### How does RMI work?
+
+Let us assume a Client-Server architecture. To achieve access transparency, a "Proxy", which is linked with a remote reference, for a remote object is created. The proxy is responsible for "communicating with the remote object" by sending requests and receiving answers. In Java RMI, a proxy for the object is created by looking up name bindings in a registry:
+~~~
+Registry r = LocateRegistry.getRegistry("localhost");
+//create the proxy and add proxy to local remote reference module
+remoteMath mathObj = (remoteMath)r.lookup("math");
+~~~
+{: .language="Java"}
+
+What is the remoteMath in the code above? It is an interface that let the entities in the distributed system agree on some parameters. We can treat this as the unique "remote reference".
+
+~~~
+public interface remoteMath extends Remote {
+	public int add(int a, int b) throws RemoteException;
+}
+
+~~~
+
+Below is a figure from [Raj's](http://www.buyya.com) lecture slides that illustrates how RMI works:
+
+![rmi](/myblog/assets/rmi.png)
+
+In addition, below are RMI components and their correspondence in Java:
+
+| RMI Component | Java | Comments |
+|:-------------:|:----:|:--------:|
+| Communication Module   |  |  Carry out the request-reply protocol |
+| Remote reference module  |   | Translating between local and remote object references and for creating remote object references  |
+| Servant   | UnicastRemoteObject  | Implement abstract methods  |
+|RMI Software - Proxy | Remote Interface | Forward message to remote object|
+|RMI Software - Dispatcher   | Remote Interface  | Uses the operationId to select the appropriate method in the skeleton, passing on the request message  |
+|RMI Software - Skeleton   | Remote Interface  | Implements marshall/unmarshall methods for communication, and communicate with Servant |
+
+![rmi](/myblog/assets/rmi_2.png)
+
+Image Src: [Coulouris'book](http://www.gecg.in/papers/ds5thedn.pdf), pp.210.
+
+A simple demo with explaination can be found [here](https://github.com/jiayun-he/rmi_explain) :D
